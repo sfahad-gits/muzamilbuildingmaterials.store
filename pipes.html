@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pipes & Fittings</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* PRODUCT GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+margin-top:30px;
+}
+
+/* CARD */
+.card{
+background:white;
+padding:15px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+/* IMAGE */
+.card img{
+width:100%;
+height:160px;
+object-fit:contain;
+margin-bottom:10px;
+}
+
+/* PRICE */
+.price{
+color:#e11d48;
+font-weight:bold;
+margin:5px 0;
+}
+
+/* BUTTON */
+.cart-btn{
+width:100%;
+padding:10px;
+background:#0ea5e9;
+border:none;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+.cart-btn:hover{
+background:#0284c7;
+}
+</style>
+
+<script src="cart.js"></script>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+
+<div class="logo" onclick="location.href='index.html'">
+<img src="images/logo.png">
+<span>Muzamil Building Materials</span>
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<div class="dropdown">
+<a href="javascript:void(0)" onclick="toggleDropdown()">Categories ▾</a>
+
+<div class="dropdown-content">
+<a href="cement.html">Cement</a>
+<a href="white-cement.html">White Cement</a>
+<a href="steel.html">Steel</a>
+<a href="sanitary.html">Sanitary</a>
+<a href="tiles.html">Tiles</a>
+<a href="tile-adhesive.html">Tile Adhesive</a>
+<a href="waterproofing.html">Waterproofing</a>
+<a href="pipes.html">Pipes</a>
+</div>
+</div>
+
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="cart.html">Cart 🛒</a>
+
+</nav>
+
+</header>
+
+<!-- BANNER -->
+<section class="heroc">
+<div class="pipes-ban"></div>
+</section>
+
+<!-- PRODUCTS
+<div class="container">
+
+<h2 class="section-title1">Pipes & Fittings</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://via.placeholder.com/200?text=PVC+Pipe">
+<p>Popular PVC Pipe</p>
+<p class="price">PKR 850</p>
+<button onclick="addToCart('Popular PVC Pipe',850,'https://via.placeholder.com/200?text=PVC+Pipe')" class="cart-btn">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200?text=UPVC+Pipe">
+<p>Master UPVC Pipe</p>
+<p class="price">PKR 920</p>
+<button onclick="addToCart('Master UPVC Pipe',920,'https://via.placeholder.com/200?text=UPVC+Pipe')" class="cart-btn">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200?text=Adamjee+Pipe">
+<p>Adamjee Pipe</p>
+<p class="price">PKR 880</p>
+<button onclick="addToCart('Adamjee Pipe',880,'https://via.placeholder.com/200?text=Adamjee+Pipe')" class="cart-btn">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200?text=Elbow">
+<p>Pipe Elbow</p>
+<p class="price">PKR 120</p>
+<button onclick="addToCart('Pipe Elbow',120,'https://via.placeholder.com/200?text=Elbow')" class="cart-btn">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200?text=Tee+Joint">
+<p>Tee Joint</p>
+<p class="price">PKR 150</p>
+<button onclick="addToCart('Tee Joint',150,'https://via.placeholder.com/200?text=Tee+Joint')" class="cart-btn">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200?text=Reducer">
+<p>Reducer</p>
+<p class="price">PKR 100</p>
+<button onclick="addToCart('Reducer',100,'https://via.placeholder.com/200?text=Reducer')" class="cart-btn">Add to Cart</button>
+</div>
+
+</div>
+
+</div>
+
+FOOTER
+<footer class="footer">
+
+<div class="footer-container">
+
+<!-- ABOUT -->
+
+<!-- WHATSAPP -->
+
+
+<script>
+const dropdown = document.querySelector(".dropdown");
+
+function toggleDropdown() {
+dropdown.classList.toggle("show");
+}
+
+document.addEventListener("click", function(e) {
+if (!e.target.closest(".dropdown")) {
+dropdown.classList.remove("show");
+}
+});
+
+/* ADD TO CART */
+function addToCart(name,price,img){
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.push({name,price,img});
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+alert(name + " added to cart");
+}
+</script>
+
+</body>
+</html> -->

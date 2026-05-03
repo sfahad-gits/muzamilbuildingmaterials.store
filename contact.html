@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Muzamil Building Materials</title>
+
+<!-- <link rel="stylesheet" href="style.css"> -->
+
+<style>
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 40px;
+background:linear-gradient(90deg,#ffffff 0%, #1e3a8a 60%, #0f172a 100%);
+box-shadow:0 4px 15px rgba(0,0,0,0.15);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+/* LOGO */
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+cursor:pointer;
+}
+
+.logo img{
+height:80px;
+}
+
+.logo span{
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-size:20px;
+font-weight:600;
+color:#111; /* dark text for white background */
+}
+
+/* NAV */
+nav a{
+color:white;
+text-decoration:none;
+margin:0 12px;
+font-size:15px;
+transition:.3s;
+}
+
+nav a:hover{
+color:#38bdf8;
+}
+
+/* CONTACT HERO */
+.contact-hero{
+padding:60px;
+text-align:center;
+background:linear-gradient(120deg,#0f172a,#1e3a8a);
+color:white;
+}
+
+/* CONTACT BOX */
+.contact-container{
+max-width:1000px;
+margin:30px auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.contact-box{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* FORM */
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:10px;
+margin:8px 0;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+.contact-form button{
+background:#1e3a8a;
+color:white;
+border:none;
+padding:10px;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* MAP */
+.map-section{
+padding:40px 20px;
+text-align:center;
+}
+
+/* MAP BOX */
+.map-box{
+position:relative;
+width:100%;
+height:400px;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* MAP */
+.map-box iframe{
+width:100%;
+height:100%;
+border:0;
+}
+
+/* BUTTONS */
+.map-buttons{
+position:absolute;
+bottom:15px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.map-btn{
+padding:10px 15px;
+border-radius:30px;
+text-decoration:none;
+color:white;
+font-size:14px;
+font-weight:600;
+transition:.3s;
+}
+
+/* COLORS */
+.map-btn.open{
+background:#2563eb;
+}
+
+.map-btn.direction{
+background:#16a34a;
+}
+
+/* HOVER */
+.map-btn:hover{
+transform:scale(1.05);
+opacity:0.9;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.map-box{
+height:300px;
+}
+
+.map-buttons{
+flex-direction:column;
+}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.contact-container{
+grid-template-columns:1fr;
+}
+}
+.footer{
+background: linear-gradient(135deg,#0f172a,#1e3a8a);
+color:white;
+padding:40px 20px;
+}
+
+.footer-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-bottom:20px;
+}
+
+.footer-box h3{
+margin-bottom:10px;
+color:#38bdf8;
+}
+
+.footer-box p{
+font-size:14px;
+line-height:1.6;
+}
+
+.footer-box a{
+display:block;
+color:#ddd;
+text-decoration:none;
+margin:5px 0;
+transition:.3s;
+}
+
+.footer-box a:hover{
+color:#38bdf8;
+padding-left:5px;
+}
+
+.timing{
+margin-top:10px;
+font-size:13px;
+color:#cbd5f5;
+}
+
+.social{
+text-align:center;
+margin-top:20px;
+}
+
+.social h3{
+margin-bottom:10px;
+color:#38bdf8;
+}
+
+.social a{
+color:white;
+font-size:22px;
+margin:0 10px;
+transition:.3s;
+}
+
+.social a:hover{
+color:#38bdf8;
+transform:scale(1.2);
+}
+
+footer p{
+text-align:center;
+margin-top:15px;
+font-size:14px;
+}
+.policy-container{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+}
+
+.policy-container h1{
+text-align:center;
+margin-bottom:20px;
+color:#1e3a8a;
+}
+
+.policy-box{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+line-height:1.8;
+font-size:15px;
+color:#333;
+transition:.3s;
+}
+
+.policy-box:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+/* ================= MOBILE RESPONSIVE FINAL FIX ================= */
+@media (max-width: 1024px){
+.container{
+padding:30px 15px;
+}
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 768px){
+
+/* HEADER */
+.header{
+flex-direction:column;
+align-items:center;
+padding:15px 10px;
+gap:10px;
+}
+
+.logo img{
+height:60px;
+margin:0;
+}
+
+.logo span{
+font-size:16px;
+text-align:center;
+}
+
+/* NAV */
+nav{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:8px;
+}
+
+nav a{
+margin:5px;
+font-size:14px;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+<div class="logo" onclick="location.href='index.html'">
+<img src="images/logo.png">
+<span>Muzamil Building Materials</span>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="cart.html">Cart 🛒</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<div class="contact-hero">
+<h1>Contact Us</h1>
+<p>We are here to help you</p>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-container">
+
+<div class="contact-box">
+<h3>Contact Info</h3>
+<p>📞 0333-9438636</p>
+<p>📧 muzamilbuldingmaterial@gmail.com</p>
+<p>📍 Gulzar e Hijri, Karachi</p>
+</div>
+
+<div class="contact-box">
+<h3>Send Message</h3>
+<div class="contact-form">
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea rows="4" placeholder="Your Message"></textarea>
+<button>Send Message</button>
+</div>
+</div>
+
+</div>
+
+<!-- MAP -->
+<div class="map-section">
+
+<h2 class="section-title">📍 Visit Our Store</h2>
+
+<div class="map-box">
+
+<iframe 
+src="https://www.google.com/maps?q=Muzamil%20Building%20Material%20Mehran%20Road%20Karachi&output=embed"
+allowfullscreen=""
+loading="lazy">
+</iframe>
+
+<!-- BUTTONS -->
+<div class="map-buttons">
+
+<a href="https://share.google/LexBdGldpzaavWuC1" target="_blank" class="map-btn open">
+📍 Open in Google Maps
+</a>
+
+<a href="https://www.google.com/maps/dir/?api=1&destination=Muzamil+Building+Material+Karachi" target="_blank" class="map-btn direction">
+🧭 Get Directions
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<!-- ABOUT -->
+<div class="footer-box">
+<h3>About Us</h3>
+<p>Muzamil Building Materials providing premium construction materials since 2015 in Karachi. Quality, trust & reliability.</p>
+</div>
+
+<!-- LINKS -->
+<div class="footer-box">
+<h3>Quick Links</h3>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="cart.html">Cart</a>
+</div>
+
+<!-- POLICIES -->
+<div class="footer-box">
+<h3>Policies</h3>
+<a href="privacy.html">Privacy Policy</a>
+<a href="cookies.html">Cookies Policy</a>
+<a href="delivery.html">Delivery Policy</a>
+<a href="returns.html">Return & Exchange</a>
+<a href="terms.html">Terms & Conditions</a>
+</div>
+
+<!-- CONTACT -->
+<div class="footer-box">
+<h3>Contact Info</h3>
+<p>📞 0333-9438636</p>
+<p>📧 muzamilbuldingmaterial@gmail.com</p>
+<p>Karachi, Pakistan</p>
+
+<p class="timing">
+🕘 Mon - Thu: 9:00 AM – 6:00 PM<br>
+🚫 Friday: Closed<br>
+🕘 Sat - Sun: Open
+</p>
+</div>
+
+</div>
+
+<!-- SOCIAL -->
+<div class="social">
+<h3>Follow Us</h3>
+<a href="#"><i class="fab fa-facebook"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-tiktok"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+</div>
+
+<p class="copyright">
+© 2026 Muzamil Building Materials
+</p>
+
+</footer>
+
+</body>
+</html>

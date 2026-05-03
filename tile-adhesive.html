@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tile Adhesives</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+.price-tag{
+background:#e11d48;
+color:white;
+padding:4px 10px;
+border-radius:20px;
+font-size:13px;
+display:inline-block;
+margin:5px 0;
+}
+</style>
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="logo" onclick="location.href='index.html'">
+<img src="images/logo.png">
+<span>Muzamil Building Materials</span>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+
+<div class="dropdown">
+<a href="javascript:void(0)" onclick="toggleDropdown()">Categories ▾</a>
+
+<div class="dropdown-content">
+<a href="cement.html">Cement</a>
+<a href="white-cement.html">White Cement</a>
+<a href="steel.html">Steel</a>
+<a href="sanitary.html">Sanitary</a>
+<a href="tiles.html">Tiles</a>
+<a href="tile-adhesive.html">Tile Adhesive</a>
+<a href="waterproofing.html">Waterproofing</a>
+<a href="pipes.html">Pipes</a>
+</div>
+</div>
+
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="cart.html">Cart 🛒</a>
+</nav>
+
+</header>
+
+<section class="heroc">
+<div class="adhesives-ban"></div>
+</section>
+
+<div class="container">
+<div class="grid">
+
+<div class="card">
+<img src="images/shabbir.png">
+<h4>Shabbir Bond</h4>
+<span class="price-tag">PKR 650</span>
+<button onclick="addToCart('Shabbir Bond',650,'https://via.placeholder.com/200?text=Shabbir+Bond')" class="btn">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="images/r.png">
+
+<h4>Ressichem Bond</h4>
+<span class="price-tag">PKR 700</span>
+<button onclick="addToCart('Ressichem Bond',700,'https://via.placeholder.com/200?text=Ressichem')" class="btn">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="images/Sea-Star.png">
+<h4>Sea-Star Bond</h4>
+<span class="price-tag">PKR 720</span>
+<button onclick="addToCart('Sea-Star Bond',720,'https://via.placeholder.com/200?text=SeaStar')" class="btn">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="images/turkk.png">
+<h4>Turrk Bond</h4>
+<span class="price-tag">PKR 680</span>
+<button onclick="addToCart('Turrk Bond',680,'https://via.placeholder.com/200?text=Turk+Bond')" class="btn">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="images/spacer.png">
+<h4>Tile Spacers</h4>
+<span class="price-tag">PKR 150</span>
+<button onclick="addToCart('Tile Spacers',150,'https://via.placeholder.com/200?text=Spacers')" class="btn">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="images/leveling.png">
+<h4>Tile Leveling</h4>
+<span class="price-tag">PKR 200</span>
+<button onclick="addToCart('Tile Leveling',200,'https://via.placeholder.com/200?text=Leveling')" class="btn">Add to Cart</button>
+</div>
+
+</div>
+</div>
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<!-- ABOUT -->
+<div class="footer-box">
+<h3>About Us</h3>
+<p>Muzamil Building Materials providing premium construction materials since 2015 in Karachi. Quality, trust & reliability.</p>
+</div>
+
+<!-- LINKS -->
+<div class="footer-box">
+<h3>Quick Links</h3>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="cart.html">Cart</a>
+</div>
+
+<!-- POLICIES -->
+<div class="footer-box">
+<h3>Policies</h3>
+<a href="privacy.html">Privacy Policy</a>
+<a href="cookies.html">Cookies Policy</a>
+<a href="delivery.html">Delivery Policy</a>
+<a href="returns.html">Return & Exchange</a>
+<a href="terms.html">Terms & Conditions</a>
+</div>
+
+<!-- CONTACT -->
+<div class="footer-box">
+<h3>Contact Info</h3>
+<p>📞 0333-9438636</p>
+<p>📧 muzamilbuldingmaterial@gmail.com</p>
+<p>Karachi, Pakistan</p>
+
+<p class="timing">
+🕘 Mon - Thu: 9:00 AM – 6:00 PM<br>
+🚫 Friday: Closed<br>
+🕘 Sat - Sun: Open
+</p>
+</div>
+
+</div>
+
+<!-- SOCIAL -->
+<div class="social">
+<h3>Follow Us</h3>
+<a href="#"><i class="fab fa-facebook"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-tiktok"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+</div>
+
+<p class="copyright">
+© 2026 Muzamil Building Materials
+</p>
+
+</footer>
+
+
+<script>
+const dropdown = document.querySelector(".dropdown");
+
+function toggleDropdown() {
+dropdown.classList.toggle("show");
+}
+
+document.addEventListener("click", function(e) {
+if (!e.target.closest(".dropdown")) {
+dropdown.classList.remove("show");
+}
+});
+
+/* ADD TO CART */
+function addToCart(name,price,img){
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.push({name,price,img});
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+alert(name + " added to cart");
+}
+</script>
+
+<script src="cart.js"></script>
+
+</body>
+</html>

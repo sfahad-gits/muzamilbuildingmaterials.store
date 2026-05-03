@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Accessories</title>
+<script src="cart.js"></script>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI','Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(90deg,#ffffff 0%, #e5e7eb 60%, #f1f5f9 100%);
+}
+
+/* HEADER */
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 40px;
+background:linear-gradient(90deg,#ffffff,#1e3a8a,#334155);
+
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo img{height:70px;}
+
+.logo span{
+font-size:18px;
+font-weight:600;
+color:white;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 10px;
+}
+
+nav a:hover{
+color:#38bdf8;
+}
+
+/* TITLE */
+.brand-title{
+text-align:center;
+font-size:42px;
+margin:30px 0;
+font-weight:800;
+color:#111;
+}
+
+/* ===== SHOWROOM GRID ===== */
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+padding:30px;
+max-width:1400px;
+margin:auto;
+}
+
+/* ===== SHOWROOM CARD (BIG STYLE) ===== */
+.product{
+background:white;
+border-radius:16px;
+overflow:hidden;
+text-align:center;
+transition:0.3s;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+border:1px solid #e5e7eb;
+}
+
+.product:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* BIG SHOWROOM IMAGE */
+.product img{
+width:100%;
+height:320px;
+object-fit:contain;
+background:#f8fafc;
+padding:20px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.product:hover img{
+transform:scale(1.05);
+}
+
+/* TEXT */
+.product p{
+font-size:16px;
+margin:10px 0;
+font-weight:600;
+color:#111;
+}
+
+/* BUTTON */
+.product button{
+background:linear-gradient(45deg,#1e3a8a,#2563eb);
+color:white;
+border:none;
+padding:10px;
+margin:10px;
+width:85%;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+}
+
+.product button:hover{
+background:linear-gradient(45deg,#0f172a,#1e40af);
+}
+
+/* POPUP */
+#popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+#popup img{
+max-width:90%;
+max-height:90%;
+border-radius:10px;
+}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+.grid{grid-template-columns:repeat(2,1fr);}
+.product img{height:280px;}
+}
+
+@media(max-width:600px){
+.grid{grid-template-columns:1fr;}
+.product img{height:260px;}
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+<div class="logo" onclick="location.href='index.html'">
+<img src="images/logo.png">
+<span>Muzamil Building Materials</span>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="sanitary.html">Back</a>
+<a href="cart.html">Cart 🛒</a>
+</nav>
+</header>
+
+<h2 class="brand-title">Accessories Collection</h2>
+
+<!-- ===== PRODUCTS ===== -->
+<div class="grid">
+
+<div class="product"><img src="images/accessories.jfif" onclick="openImg(this.src)">
+<p>Accessories 1</p>
+<button onclick="addToCart('Accessories 1',1000)">Add</button></div>
+
+<div class="product"><img src="images/accessories1.jfif" onclick="openImg(this.src)">
+<p>Accessories 2</p>
+<button onclick="addToCart('Accessories 2',1200)">Add</button></div>
+
+<div class="product"><img src="images/accessories2.jfif" onclick="openImg(this.src)">
+<p>Accessories 3</p>
+<button onclick="addToCart('Accessories 3',1400)">Add</button></div>
+
+<div class="product"><img src="images/accessories3.jfif" onclick="openImg(this.src)">
+<p>Accessories 4</p>
+<button onclick="addToCart('Accessories 4',1600)">Add</button></div>
+
+<div class="product"><img src="images/accessories4.jfif" onclick="openImg(this.src)">
+<p>Accessories 5</p>
+<button onclick="addToCart('Accessories 5',1800)">Add</button></div>
+
+<div class="product"><img src="images/touchsoap1.jfif" onclick="openImg(this.src)">
+<p>Touch Soap 1</p>
+<button onclick="addToCart('Touch Soap 1',2000)">Add</button></div>
+
+<div class="product"><img src="images/touchsoap2.jfif" onclick="openImg(this.src)">
+<p>Touch Soap 2</p>
+<button onclick="addToCart('Touch Soap 2',2200)">Add</button></div>
+
+<div class="product"><img src="images/touchsoap3.jfif" onclick="openImg(this.src)">
+<p>Touch Soap 3</p>
+<button onclick="addToCart('Touch Soap 3',2400)">Add</button></div>
+
+<div class="product"><img src="images/touchsoap4.jfif" onclick="openImg(this.src)">
+<p>Touch Soap 4</p>
+<button onclick="addToCart('Touch Soap 4',2600)">Add</button></div>
+
+<div class="product"><img src="images/accessories5.jfif" onclick="openImg(this.src)">
+<p>Accessories 6</p>
+<button onclick="addToCart('Accessories 6',2800)">Add</button></div>
+
+<div class="product"><img src="images/accessories6.jfif" onclick="openImg(this.src)">
+<p>Accessories 7</p>
+<button onclick="addToCart('Accessories 7',3000)">Add</button></div>
+
+<div class="product"><img src="images/accessories7.jfif" onclick="openImg(this.src)">
+<p>Accessories 8</p>
+<button onclick="addToCart('Accessories 8',3200)">Add</button></div>
+
+<div class="product"><img src="images/accessories8.jfif" onclick="openImg(this.src)">
+<p>Accessories 9</p>
+<button onclick="addToCart('Accessories 9',3400)">Add</button></div>
+
+<div class="product"><img src="images/accessories9.jfif" onclick="openImg(this.src)">
+<p>Accessories 10</p>
+<button onclick="addToCart('Accessories 10',3600)">Add</button></div>
+
+<div class="product"><img src="images/accessories10.jfif" onclick="openImg(this.src)">
+<p>Accessories 11</p>
+<button onclick="addToCart('Accessories 11',3800)">Add</button></div>
+
+<div class="product"><img src="images/accessories11.jfif" onclick="openImg(this.src)">
+<p>Accessories 12</p>
+<button onclick="addToCart('Accessories 12',4000)">Add</button></div>
+
+<div class="product"><img src="images/accessories12.jfif" onclick="openImg(this.src)">
+<p>Accessories 13</p>
+<button onclick="addToCart('Accessories 13',4200)">Add</button></div>
+
+<div class="product"><img src="images/accessories13.jfif" onclick="openImg(this.src)">
+<p>Accessories 14</p>
+<button onclick="addToCart('Accessories 14',4500)">Add</button></div>
+
+</div>
+
+<!-- POPUP -->
+<div id="popup" onclick="closeImg()">
+<img id="popimg">
+</div>
+
+<script>
+function openImg(src){
+document.getElementById("popup").style.display="flex";
+document.getElementById("popimg").src=src;
+}
+
+function closeImg(){
+document.getElementById("popup").style.display="none";
+}
+</script>
+
+</body>
+</html>

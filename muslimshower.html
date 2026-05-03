@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muslim Showers- Premium Collection</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="cart.js"></script>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(90deg,#ffffff,#eef2f7,#ffffff);
+color:#111;
+}
+
+/* HEADER */
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 40px;
+background:linear-gradient(90deg,#ffffff,#1e3a8a,#334155);
+
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo img{height:75px;}
+
+.logo span{
+color:white;
+font-size:18px;
+}
+
+/* TITLE */
+.brand-title{
+text-align:center;
+font-size:40px;
+margin:25px 0;
+font-weight:700;
+color:#0f172a;
+}
+
+/* BRAND LOGO */
+.brand-logo{
+text-align:center;
+margin:20px 0;
+}
+
+.brand-logo img{
+height:80px;
+background:white;
+padding:8px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* ===== GRID (IMPORTANT FIX FOR SMALL IMAGES) ===== */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:15px;
+padding:20px 30px;
+}
+
+/* ===== CLEAN SMALL CARD STYLE ===== */
+.product{
+background:white;
+border-radius:12px;
+overflow:hidden;
+text-align:center;
+box-shadow:0 4px 12px rgba(0,0,0,0.12);
+transition:0.3s;
+display:flex;
+flex-direction:column;
+}
+
+.product:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* 🔥 FIX SMALL IMAGE LOOK */
+.product img{
+width:100%;
+height:150px;          /* small but clean uniform size */
+object-fit:contain;    /* IMPORTANT: no crop */
+background:#f8fafc;
+padding:10px;
+cursor:pointer;
+}
+
+/* TEXT */
+.product p{
+font-size:13px;
+margin:5px 6px;
+color:#111;
+}
+
+/* PRICE */
+.price{
+color:#e11d48;
+font-weight:bold;
+font-size:14px;
+}
+
+/* BUTTON */
+.product button{
+margin-top:auto;
+background:linear-gradient(45deg,#0ea5e9,#1e3a8a);
+color:white;
+border:none;
+padding:8px;
+width:100%;
+cursor:pointer;
+font-size:13px;
+font-weight:600;
+}
+
+.product button:hover{
+background:linear-gradient(45deg,#0284c7,#1e40af);
+}
+
+/* POPUP */
+#popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.92);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+#popup img{
+max-width:95%;
+max-height:95%;
+border-radius:10px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.grid{
+grid-template-columns:repeat(3,1fr);
+}
+}
+
+@media(max-width:600px){
+.grid{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:400px){
+.grid{
+grid-template-columns:1fr;
+}
+}
+</style>
+
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+<div class="logo" onclick="location.href='index.html'">
+<img src="images/logo.png">
+<span>Muzamil Building Materials</span>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="sanitary.html">Back</a>
+<a href="cart.html">Cart 🛒</a>
+</nav>
+</header>
+<body>
+
+
+
+<h2 class="brand-title">MUSLIM SHOWERS COLLECTION</h2>
+
+<!-- <h2 class="brand-title">Premium Brands</h2> -->
+
+<!-- ===== BRAND 1 ===== -->
+<!-- <div class="brand-logo"><img src="images/aquab.jfif"></div> -->
+<div class="grid">
+
+<div class="product"><img src="images/muslim1.webp" onclick="openImg(this.src)"><p>Aqua Bath Muslim Shower</p><p class="price">5000</p><button onclick="addToCart('Mixer 1',5000)">Add</button></div>
+<div class="product"><img src="images/muslim2.webp" onclick="openImg(this.src)"><p></p>Aqua Bath Muslim Shower<p class="price">5200</p><button onclick="addToCart('Mixer 2',5200)">Add</button></div>
+<div class="product"><img src="images/muslim3.webp" onclick="openImg(this.src)"><p>Faisal Muslim Shower Silver</p><p class="price">5400</p><button onclick="addToCart('Mixer 3',5400)">Add</button></div>
+<div class="product"><img src="images/muslim5.webp" onclick="openImg(this.src)"><p>Faisal Muslim Shower Golden</p><p class="price">5600</p><button onclick="addToCart('Mixer 4',5600)">Add</button></div>
+<div class="product"><img src="images/muslim4.webp" onclick="openImg(this.src)"><p>Faisal Muslim Shower Black</p><p class="price">5800</p><button onclick="addToCart('Mixer 5',5800)">Add</button></div>
+<div class="product"><img src="images/muslim6.webp" onclick="openImg(this.src)"><p>Faisal Muslim Shower White</p><p class="price">6000</p><button onclick="addToCart('Mixer 6',6000)">Add</button></div>
+<div class="product"><img src="images/muslim7.webp" onclick="openImg(this.src)"><p>Faisal Muslim Shower Grey</p><p class="price">6200</p><button onclick="addToCart('Mixer 7',6200)">Add</button></div>
+<div class="product"><img src="images/muslim7.webp" onclick="openImg(this.src)"><p>Faisal Muslim Shower Grey</p><p class="price">6200</p><button onclick="addToCart('Mixer 7',6200)">Add</button></div>
+<div class="product"><img src="images/muslim8.webp" onclick="openImg(this.src)"><p>Faisal Muslim Shower Grey</p><p class="price">6200</p><button onclick="addToCart('Mixer 7',6200)">Add</button></div>
+<div class="product"><img src="images/muslim9.webp" onclick="openImg(this.src)"><p>Faisal Muslim Shower Grey</p><p class="price">6200</p><button onclick="addToCart('Mixer 7',6200)">Add</button></div>
+
+</div>
+
+
+
+<!-- POPUP -->
+<div id="popup" onclick="closeImg()">
+<img id="popimg">
+</div>
+
+<script>
+function openImg(src){
+document.getElementById("popup").style.display="flex";
+document.getElementById("popimg").src=src;
+}
+function closeImg(){
+document.getElementById("popup").style.display="none";
+}
+</script>
+
+</body>
+</html>

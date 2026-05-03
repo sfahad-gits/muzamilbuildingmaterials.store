@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart - Muzamil Building Materials</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<style>
+body { font-family: Arial; padding:20px; }
+.cart-item {
+    border:1px solid #ccc;
+    padding:10px;
+    margin:10px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+button {
+    padding:5px 10px;
+    margin:2px;
+    cursor:pointer;
+}
+.qty {
+    display:flex;
+    align-items:center;
+}
+</style>
+
+
+<h2>Your Cart</h2>
+
+<div id="cart-items"></div>
+<h3 id="total"></h3>
+
+
+
+<!-- CONTACT -->
+<div class="footer-box">
+<h3>Contact</h3>
+<p>📞 0333-9438636</p>
+<p>📧 muzamilbuldingmaterial@gmail.com</p>
+<p>Karachi, Pakistan</p>
+</div>
+
+<!-- TIMING -->
+<div class="footer-box">
+<h3>Working Hours</h3>
+<p>Mon - Thu: 9:00 AM – 6:00 PM</p>
+<p>Friday: Closed</p>
+<p>Sat - Sun: 10:00 AM – 5:00 PM</p>
+</div>
+
+</div>
+
+<!-- SOCIAL -->
+<div class="social">
+<a href="#"><i class="fa-brands fa-facebook"></i></a>
+<a href="#"><i class="fa-brands fa-instagram"></i></a>
+<a href="#"><i class="fa-brands fa-tiktok"></i></a>
+<a href="#"><i class="fa-brands fa-youtube"></i></a>
+</div>
+
+<p class="copy">© 2026 Muzamil Building Materials</p>
+
+
+
+<a href="https://wa.me/923339438636" class="whatsapp">💬</a>
+
+<button onclick="checkout()" class="checkout-btn">
+Checkout on WhatsApp
+</button>
+</footer>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function renderCart() {
+    let container = document.getElementById("cart-items");
+    container.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price * item.qty;
+
+        container.innerHTML += `
+        <div class="cart-item">
+            <div>
+                <p><b>${item.name}</b></p>
+                <p>PKR ${item.price}</p>
+            </div>
+
+            <div class="qty">
+                <button onclick="decreaseQty(${index})">-</button>
+                <span>${item.qty}</span>
+                <button onclick="increaseQty(${index})">+</button>
+            </div>
+
+            <div>
+                <p>PKR ${item.price * item.qty}</p>
+                <button onclick="removeItem(${index})">Delete</button>
+            </div>
+        </div>
+        `;
+    });
+
+    document.getElementById("total").innerText = "Total: PKR " + total;
+}
+
+function increaseQty(index) {
+    cart[index].qty += 1;
+    updateCart();
+}
+
+function decreaseQty(index) {
+    if (cart[index].qty > 1) {
+        cart[index].qty -= 1;
+    } else {
+        removeItem(index);
+        return;
+    }
+    updateCart();
+}
+
+function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
+
+function updateCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+}
+
+// FIRST LOAD
+renderCart();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Squat Pans - Premium Collection</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="cart.js"></script>
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI', sans-serif;
+}
+
+/* BODY */
+body{
+background:linear-gradient(90deg,#ffffff 0%, #737d9875 60%, #4b53650e 100%);
+color:#111;
+}
+
+/* HEADER */
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 40px;
+background:linear-gradient(90deg,#ffffff,#1e3a8a,#334155);
+
+position:sticky;
+top:0;
+z-index:1000;
+color:white;
+}
+
+/* LOGO */
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+cursor:pointer;
+}
+
+.logo img{
+height:65px;
+}
+
+.logo span{
+color:white;
+font-weight:600;
+font-size:18px;
+}
+
+/* NAV */
+nav a{
+color:white;
+text-decoration:none;
+margin:0 10px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#38bdf8;
+}
+
+/* ================= BRAND TITLE ================= */
+.brand-title{
+text-align:center;
+font-size:38px;
+margin:25px 0 10px;
+font-weight:bold;
+color:#000;
+letter-spacing:1px;
+}
+
+/* ================= BRAND LOGO (UPDATED PREMIUM LOOK) ================= */
+.brand-logo{
+display:flex;
+justify-content:center;
+align-items:center;
+margin:15px 0 25px;
+}
+
+.brand-logo img{
+height:85px;
+max-width:90%;
+object-fit:contain;
+padding:10px 20px;
+background:white;
+border-radius:12px;
+box-shadow:0 6px 18px rgba(0,0,0,0.15);
+transition:0.3s;
+}
+
+.brand-logo img:hover{
+transform:scale(1.05);
+}
+
+/* ================= GRID ================= */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:16px;
+padding:20px;
+}
+
+/* ================= PRODUCT CARD ================= */
+.product{
+background:rgba(112,158,177,0.85);
+border-radius:14px;
+overflow:hidden;
+display:flex;
+flex-direction:column;
+transition:0.3s;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* hover */
+.product:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* IMAGE FIX */
+.product img{
+width:100%;
+height:180px;
+object-fit:contain;
+background:white;
+padding:8px;
+}
+
+/* TEXT */
+.product p{
+font-size:14px;
+margin:6px 10px;
+text-align:center;
+}
+
+/* PRICE */
+.price{
+color:#e11d48;
+font-weight:bold;
+}
+
+/* BUTTON ALWAYS AT BOTTOM */
+.product button{
+margin-top:auto;
+background:linear-gradient(45deg,#0ea5e9,#1e3a8a);
+color:white;
+border:none;
+padding:10px;
+width:100%;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+}
+
+.product button:hover{
+background:linear-gradient(45deg,#0284c7,#1e40af);
+}
+
+/* POPUP */
+#popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+#popup img{
+max-width:90%;
+max-height:90%;
+border-radius:10px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+.grid{
+grid-template-columns:repeat(3,1fr);
+}
+}
+
+@media(max-width:600px){
+.grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.brand-title{
+font-size:26px;
+}
+
+.brand-logo img{
+height:70px;
+}
+}
+
+@media(max-width:400px){
+.grid{
+grid-template-columns:1fr;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+<div class="logo" onclick="location.href='index.html'">
+<img src="images/logo.png">
+<span>Muzamil Building Materials</span>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="sanitary.html">Back</a>
+<a href="cart.html">Cart 🛒</a>
+</nav>
+</header>
+
+<!-- BANNER -->
+<!-- <div class="squat-ban"></div> -->
+
+<!-- PREMIUM -->
+<h2 class="brand-title">SQUATING PAN</h2>
+
+
+<div class="brand-logo"><img src="images/yubath.jfif"></div>
+
+<div class="grid">
+
+<div class="product"><img src="images/yupan1.jfif" onclick="openImg(this.src)"><p>Squat Pan 1</p><p class="price">PKR 8000</p><button onclick="addToCart('Squat Pan 1',8000)">Add</button></div>
+<div class="product"><img src="images/yupan2.jfif" onclick="openImg(this.src)"><p>Squat Pan 2</p><p class="price">PKR 8200</p><button onclick="addToCart('Squat Pan 2',8200)">Add</button></div>
+<div class="product"><img src="images/yupan3.jfif" onclick="openImg(this.src)"><p>Squat Pan 3</p><p class="price">PKR 8400</p><button onclick="addToCart('Squat Pan 3',8400)">Add</button></div>
+<div class="product"><img src="images/yupan4.jfif" onclick="openImg(this.src)"><p>Squat Pan 4</p><p class="price">PKR 8600</p><button onclick="addToCart('Squat Pan 4',8600)">Add</button></div>
+<div class="product"><img src="images/yupan5.jfif" onclick="openImg(this.src)"><p>Squat Pan 5</p><p class="price">PKR 8800</p><button onclick="addToCart('Squat Pan 5',8800)">Add</button></div>
+<div class="product"><img src="images/yupan6.jfif" onclick="openImg(this.src)"><p>Squat Pan 6</p><p class="price">PKR 9000</p><button onclick="addToCart('Squat Pan 6',9000)">Add</button></div>
+</div>
+
+<!-- NORMAL -->
+<h2 class="brand-title">Normal Brands</h2>
+
+<div class="brand-logo"><img src="images/prota.jfif"></div>
+
+<div class="grid">
+
+<div class="product"><img src="images/p.pan1.jfif" onclick="openImg(this.src)"><p>Basic Pan 1</p><p class="price">PKR 5000</p><button onclick="addToCart('Basic Pan 1',5000)">Add</button></div>
+<div class="product"><img src="images/p.pan2.jfif" onclick="openImg(this.src)"><p>Basic Pan 2</p><p class="price">PKR 5200</p><button onclick="addToCart('Basic Pan 2',5200)">Add</button></div>
+<div class="product"><img src="images/p.pan3.jfif" onclick="openImg(this.src)"><p>Basic Pan 3</p><p class="price">PKR 5400</p><button onclick="addToCart('Basic Pan 3',5400)">Add</button></div>
+<div class="product"><img src="images/p.pan4.jfif" onclick="openImg(this.src)"><p>Basic Pan 4</p><p class="price">PKR 5600</p><button onclick="addToCart('Basic Pan 4',5600)">Add</button></div>
+<div class="product"><img src="images/p.pan5.jfif" onclick="openImg(this.src)"><p>Basic Pan 5</p><p class="price">PKR 5800</p><button onclick="addToCart('Basic Pan 5',5800)">Add</button></div>
+
+</div>
+
+<!-- POPUP -->
+<div id="popup" onclick="closeImg()">
+<img id="popimg">
+</div>
+
+<!-- FOOTER -->
+<footer>
+<p>📞 0333-9438636</p>
+<p>📧 muzamilbuldingmaterial@gmail.com</p>
+<p>Karachi, Pakistan</p>
+</footer>
+
+<!-- JS -->
+<script>
+function openImg(src){
+document.getElementById("popup").style.display="flex";
+document.getElementById("popimg").src=src;
+}
+function closeImg(){
+document.getElementById("popup").style.display="none";
+}
+</script>
+
+</body>
+</html>

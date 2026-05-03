@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MBM Store ERP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+margin:0;
+font-family:Segoe UI;
+background:#f6f7fb;
+}
+
+/* LOGIN */
+#loginBox{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#eef2ff;
+}
+
+.box{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+input{
+padding:10px;
+margin:5px;
+border:1px solid #ccc;
+border-radius:6px;
+width:220px;
+}
+
+button{
+padding:10px 15px;
+border:none;
+background:#2563eb;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* APP */
+#app{
+display:none;
+}
+
+/* SIDEBAR */
+.sidebar{
+width:230px;
+height:100vh;
+position:fixed;
+background:white;
+padding:15px;
+box-shadow:2px 0 10px rgba(0,0,0,0.05);
+}
+
+.sidebar h2{
+color:#2563eb;
+}
+
+.sidebar button{
+width:100%;
+padding:10px;
+margin:5px 0;
+border:none;
+background:#f1f5f9;
+text-align:left;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* MAIN */
+.main{
+margin-left:250px;
+padding:20px;
+}
+
+/* TABLE */
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+}
+
+th,td{
+padding:10px;
+border-bottom:1px solid #eee;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="loginBox">
+<div class="box">
+<h2>Welcome to MBM Store</h2>
+<p><b>Fahad Shah</b></p>
+
+<input id="passwordInput" type="password" placeholder="Enter Password"
+onkeydown="if(event.key==='Enter') login()">
+
+<br>
+<button onclick="login()">Login</button>
+</div>
+</div>
+
+<!-- APP -->
+<div id="app">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+<h2>Muzamil Building Material</h2>
+
+<button onclick="show('dash')">Dashboard</button>
+<button onclick="show('stock')">Stock</button>
+<button onclick="show('sales')">Sales</button>
+<button onclick="show('acc')">Accounts</button>
+
+<hr>
+
+<button onclick="exportAll()">Export All</button>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- DASH -->
+<div id="dash">
+<h3>Dashboard</h3>
+<p>Total Sales: <span id="ts">0</span></p>
+<p>Total Profit: <span id="tp">0</span></p>
+<p>Total Products: <span id="tpd">0</span></p>
+</div>
+
+<!-- STOCK -->
+<div id="stock" style="display:none">
+<h3>Stock</h3>
+
+<input id="n" placeholder="Name">
+<input id="c" placeholder="Cost">
+<input id="p" placeholder="Price">
+<input id="q" placeholder="Qty">
+
+<button onclick="addProduct()">Add</button>
+
+<table id="stockTable"></table>
+</div>
+
+<!-- SALES -->
+<div id="sales" style="display:none">
+<h3>Sales</h3>
+
+<select id="sel"></select>
+<input id="sq" placeholder="Qty"
+onkeydown="if(event.key==='Enter') sell()">
+
+<button onclick="sell()">Sell</button>
+
+<table id="salesTable"></table>
+</div>
+
+<!-- ACCOUNTS -->
+<div id="acc" style="display:none">
+<h3>Accounts</h3>
+
+<input id="cn" placeholder="Customer">
+<input id="cp" placeholder="Paid">
+
+<button onclick="addAcc()">Add</button>
+
+<input id="search" placeholder="Search..." onkeyup="renderAcc()">
+
+<table id="accTable"></table>
+</div>
+
+</div>
+</div>
+
+<script>
+
+/* DATA */
+let products=[];
+let sales=[];
+let acc=[];
+
+/* 🔐 LOGIN FIX (NO CONFLICTS) */
+function login(){
+let pass=document.getElementById("passwordInput").value;
+
+if(pass==="fahadshah"){
+document.getElementById("loginBox").style.display="none";
+document.getElementById("app").style.display="block";
+renderAll();
+}else{
+alert("Wrong password");
+}
+}
+
+/* NAV */
+function show(id){
+["dash","stock","sales","acc"].forEach(x=>{
+document.getElementById(x).style.display="none";
+});
+document.getElementById(id).style.display="block";
+}
+
+/* STOCK */
+function addProduct(){
+products.push({
+name:n.value,
+cost:+c.value,
+price:+p.value,
+qty:+q.value
+});
+renderAll();
+}
+
+/* SALES */
+function sell(){
+let i=sel.value;
+let qty=+sq.value;
+
+if(products[i].qty<qty) return alert("Low stock");
+
+products[i].qty-=qty;
+
+sales.push({
+name:products[i].name,
+qty,
+total:products[i].price*qty,
+profit:(products[i].price-products[i].cost)*qty,
+date:new Date().toLocaleDateString()
+});
+
+renderAll();
+}
+
+/* ACCOUNTS */
+function addAcc(){
+acc.push({name:cn.value,paid:+cp.value});
+renderAcc();
+}
+
+/* RENDER STOCK */
+function renderStock(){
+
+stockTable.innerHTML =
+`<tr><th>Name</th><th>Cost</th><th>Price</th><th>Qty</th></tr>`+
+products.map(p=>
+`<tr>
+<td>${p.name}</td>
+<td>${p.cost}</td>
+<td>${p.price}</td>
+<td>${p.qty}</td>
+</tr>`
+).join("");
+
+sel.innerHTML =
+products.map((p,i)=>
+`<option value="${i}">${p.name}</option>`
+).join("");
+}
+
+/* SALES */
+function renderSales(){
+
+salesTable.innerHTML =
+`<tr><th>Name</th><th>Qty</th><th>Total</th><th>Profit</th></tr>`+
+sales.map(s=>
+`<tr>
+<td>${s.name}</td>
+<td>${s.qty}</td>
+<td>${s.total}</td>
+<td>${s.profit}</td>
+</tr>`
+).join("");
+}
+
+/* ACCOUNTS */
+function renderAcc(){
+
+let s=search.value?.toLowerCase()||"";
+
+let data={};
+acc.filter(a=>a.name.toLowerCase().includes(s))
+.forEach(a=>{
+data[a.name]=(data[a.name]||0)+a.paid;
+});
+
+let LIMIT=50000;
+
+accTable.innerHTML =
+`<tr><th>Name</th><th>Paid</th><th>Remaining</th></tr>`+
+Object.keys(data).map(n=>{
+let paid=data[n];
+return `<tr>
+<td>${n}</td>
+<td>${paid}</td>
+<td>${LIMIT-paid}</td>
+</tr>`;
+}).join("");
+}
+
+/* DASH */
+function renderDash(){
+ts.innerText=sales.reduce((a,b)=>a+b.total,0);
+tp.innerText=sales.reduce((a,b)=>a+b.profit,0);
+tpd.innerText=products.length;
+}
+
+/* EXPORT ALL */
+function exportAll(){
+
+let csv="TYPE,NAME,QTY,AMOUNT,PROFIT,DATE\n";
+
+sales.forEach(s=>{
+csv+=`SALE,${s.name},${s.qty},${s.total},${s.profit},${s.date}\n`;
+});
+
+acc.forEach(a=>{
+csv+=`ACCOUNT,${a.name},${a.paid},PAID,-,-\n`;
+});
+
+products.forEach(p=>{
+csv+=`STOCK,${p.name},${p.qty},${p.price},-, -\n`;
+});
+
+let blob=new Blob([csv],{type:"text/csv"});
+let a=document.createElement("a");
+a.href=URL.createObjectURL(blob);
+a.download="MBM_FULL_REPORT.csv";
+a.click();
+}
+
+/* MAIN */
+function renderAll(){
+renderStock();
+renderSales();
+renderAcc();
+renderDash();
+show("dash");
+}
+
+</script>
+
+</body>
+</html>

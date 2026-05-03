@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commodes - Premium Collection</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="cart.js"></script>
+<style>
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI', sans-serif;
+}
+
+/* BODY */
+body{
+background:linear-gradient(90deg,#ffffff 0%, #737d9875 60%, #4b53650e 100%);
+color:#111;
+}
+
+/* HEADER (keep yours if OK) */
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 40px;
+background:linear-gradient(90deg,#ffffff,#1e3a8a,#334155);
+
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+/* ================= BRAND LOGO ================= */
+.brand-logo{
+text-align:center;
+margin:25px 0;
+}
+
+.brand-logo img{
+height:80px;
+object-fit:contain;
+}
+
+/* ================= TITLE ================= */
+.brand-title{
+text-align:center;
+font-size:42px;
+margin:25px 0;
+font-weight:800;
+color:#000;
+}
+
+/* ================= GRID FIX ================= */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+gap:16px;
+padding:20px;
+}
+
+/* ================= UNIFIED PRODUCT CARD ================= */
+.product,
+.product,
+.product2,
+.product3{
+background:rgba(112,158,177,0.85);
+border-radius:14px;
+overflow:hidden;
+display:flex;
+flex-direction:column;
+text-align:center;
+transition:0.3s;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* hover */
+.product:hover,
+.product:hover,
+.product2:hover,
+.product3:hover{
+transform:translateY(-6px);
+box-shadow:0 12px 25px rgba(0,0,0,0.25);
+}
+
+/* ================= IMAGE FIX (MOST IMPORTANT) ================= */
+.product img,
+.product img,
+.product2 img,
+.product3 img{
+width:100%;
+height:180px;
+object-fit:contain;   /* NO CROPPING */
+background:white;
+padding:8px;
+transition:0.3s;
+}
+
+/* hover zoom */
+.product:hover img,
+.product:hover img,
+.product2:hover img,
+.product3:hover img{
+transform:scale(1.05);
+}
+
+/* TEXT */
+.product p,
+.product p,
+.product2 p,
+.product3 p{
+font-size:14px;
+margin:6px 10px;
+color:#111;
+}
+
+/* PRICE */
+.price{
+color:#e11d48;
+font-weight:bold;
+}
+
+/* ================= BUTTON FIX (ALWAYS BOTTOM) ================= */
+.product button,
+.product button,
+.product2 button,
+.product3 button{
+margin-top:auto;
+background:linear-gradient(45deg,#0ea5e9,#1e3a8a);
+color:white;
+border:none;
+padding:10px;
+width:100%;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+}
+
+.product button:hover,
+.product button:hover,
+.product2 button:hover,
+.product3 button:hover{
+background:linear-gradient(45deg,#0284c7,#1e40af);
+}
+
+/* ================= POPUP ================= */
+#popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+#popup img{
+max-width:90%;
+max-height:90%;
+border-radius:10px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+.grid{
+grid-template-columns:repeat(3,1fr);
+}
+}
+
+@media(max-width:600px){
+.grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.brand-title{
+font-size:28px;
+}
+}
+
+@media(max-width:400px){
+.grid{
+grid-template-columns:1fr;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+<div class="logo" onclick="location.href='index.html'">
+<img src="images/logo.png">
+<span>Muzamil Building Materials</span>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="sanitary.html">Back</a>
+<a href="cart.html">Cart 🛒</a>
+</nav>
+</header>
+
+<!-- BANNER -->
+<div class="commode-ban"></div>
+
+<!-- PREMIUM -->
+<h2 class="brand-title">OUR PREMIUM COLLECTION</h2>
+
+<!-- BRAND 1 -->
+<div class="brand-logo"><img src="images/aquab.jfif"></div>
+
+<div class="grid">
+
+<div class="product"><img src="images/ac1.jfif" onclick="openImg(this.src)"><p>Designer Wall Hung WC Set - White & Gold</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac2.jfif" onclick="openImg(this.src)"><p>Designer Wall Hung WC Set - White & Gold</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac3.jfif" onclick="openImg(this.src)"><p>Designer Wall Hung WC Set - White & Black</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac4.jfif" onclick="openImg(this.src)"><p>Designer Wall Hung WC Set - Black & Gold</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac5.jfif" onclick="openImg(this.src)"><p>Designer Wall Hung WC Set - White & Gold</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac6.jfif" onclick="openImg(this.src)"><p>Designer Wall Hung WC Set - Black & Gold</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac7.jfif" onclick="openImg(this.src)"><p>Designer Wall Hung WC Set - White </p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac8.jfif" onclick="openImg(this.src)"><p>Designer Wall Hung WC Set - Black</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac9.jfif" onclick="openImg(this.src)"><p>Designer Wall Hung WC Set - White & Gold</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac10.jfif" onclick="openImg(this.src)"><p>Designer Wall Hung WC Set - White & Gold</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac10.jfif" onclick="openImg(this.src)"><p>Designer Wall Hung WC Set - White & Gold</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac11.jfif" onclick="openImg(this.src)"><p>Designer Wall Hung WC Set - Black & Gold</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac12.jfif" onclick="openImg(this.src)"><p>Designer Wall Hung WC Set - Black & Gold</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac13.jfif" onclick="openImg(this.src)"><p>Designer One-Piece Tolit Set - White & Gold</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac14.jfif" onclick="openImg(this.src)"><p>Designer One-Piece Tolit Set - Gold</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac15.webp" onclick="openImg(this.src)"><p>Designer One-Piece Tolit Set - Black & Gold</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac16.webp" onclick="openImg(this.src)"><p>Solid One-Piece Tolit Set - White</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac17.webp" onclick="openImg(this.src)"><p>Wall Hung WC Set - Grey</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac18.webp" onclick="openImg(this.src)"><p>Wall Hung WC Set - Black</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+<div class="product"><img src="images/ac20.webp" onclick="openImg(this.src)"><p>Wall Hung WC Set - White</p><p class="price">PKR 10000</p><button onclick="addToCart('Designer Wall Hung WC Set - White & Gold',80000)">Add</button></div>
+
+
+</div>
+
+<!-- NORMAL -->
+<h2 class="brand-title">OTHER COLLECTION BRANDS</h2>
+
+<div class="brand-logo"><img src="images/yubath.jfif"></div>
+
+<div class="grid">
+
+<div class="product"><img src="images/yc1.jfif" onclick="openImg(this.src)"><p>Basic Commode 1</p><p class="price">PKR 10000</p><button onclick="addToCart('Basic Commode 1',10000)">Add</button></div>
+<div class="product"><img src="images/yc3.jfif" onclick="openImg(this.src)"><p>Basic Commode 2</p><p class="price">PKR 10500</p><button onclick="addToCart('Basic Commode 2',10500)">Add</button></div>
+<div class="product"><img src="images/yc3.jfif" onclick="openImg(this.src)"><p>Basic Commode 3</p><p class="price">PKR 11000</p><button onclick="addToCart('Basic Commode 3',11000)">Add</button></div>
+<div class="product"><img src="images/yc13.jfif" onclick="openImg(this.src)"><p>Basic Commode 4</p><p class="price">PKR 11500</p><button onclick="addToCart('Basic Commode 4',11500)">Add</button></div>
+<div class="product"><img src="images/yc5.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product"><img src="images/yc6.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product"><img src="images/yc7.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product"><img src="images/yc8.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product"><img src="images/yc9.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product"><img src="images/yc10.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product"><img src="images/yc11.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product"><img src="images/yc12.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+</div>
+<div class="brand-logo"><img src="images/allied.jfif"></div>
+
+<div class="grid">
+
+<div class="product"><img src="images/pc1.jfif" onclick="openImg(this.src)"><p>Basic Commode 1</p><p class="price">PKR 10000</p><button onclick="addToCart('Basic Commode 1',10000)">Add</button></div>
+<div class="product"><img src="images/pc3.jfif" onclick="openImg(this.src)"><p>Basic Commode 2</p><p class="price">PKR 10500</p><button onclick="addToCart('Basic Commode 2',10500)">Add</button></div>
+<div class="product"><img src="images/pc3.jfif" onclick="openImg(this.src)"><p>Basic Commode 3</p><p class="price">PKR 11000</p><button onclick="addToCart('Basic Commode 3',11000)">Add</button></div>
+<div class="product"><img src="images/pc4.jfif" onclick="openImg(this.src)"><p>Basic Commode 4</p><p class="price">PKR 11500</p><button onclick="addToCart('Basic Commode 4',11500)">Add</button></div>
+<div class="product"><img src="images/pc5.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product"><img src="images/pc6.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product"><img src="images/pc7.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product"><img src="images/pc8.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+
+</div>
+<div class="brand-logo"><img src="images/lucky.jfif"></div>
+
+<div class="grid">
+
+<div class="product"><img src="images/lc1.jfif" onclick="openImg(this.src)"><p>Basic Commode 1</p><p class="price">PKR 10000</p><button onclick="addToCart('Basic Commode 1',10000)">Add</button></div>
+<div class="product"><img src="images/lc3.jfif" onclick="openImg(this.src)"><p>Basic Commode 2</p><p class="price">PKR 10500</p><button onclick="addToCart('Basic Commode 2',10500)">Add</button></div>
+<div class="product"><img src="images/lc3.jfif" onclick="openImg(this.src)"><p>Basic Commode 3</p><p class="price">PKR 11000</p><button onclick="addToCart('Basic Commode 3',11000)">Add</button></div>
+<div class="product"><img src="images/lc4.jfif" onclick="openImg(this.src)"><p>Basic Commode 4</p><p class="price">PKR 11500</p><button onclick="addToCart('Basic Commode 4',11500)">Add</button></div>
+<div class="product"><img src="images/lc5.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product"><img src="images/lc6.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product"><img src="images/lc7.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product"><img src="images/lc8.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product"><img src="images/lc9.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product"><img src="images/lc10.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product"><img src="images/lc11.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<!-- <div class="product"><img src="images/lc1.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div> -->
+</div>
+<div class="brand-logo"><img src="images/total.jfif"></div>
+
+<div class="grid">
+
+<div class="product2"><img src="images/tc1.jfif" onclick="openImg(this.src)"><p>Basic Commode 1</p><p class="price">PKR 10000</p><button onclick="addToCart('Basic Commode 1',10000)">Add</button></div>
+<div class="product2"><img src="images/tc3.jfif" onclick="openImg(this.src)"><p>Basic Commode 2</p><p class="price">PKR 10500</p><button onclick="addToCart('Basic Commode 2',10500)">Add</button></div>
+<div class="product2"><img src="images/tc3.jfif" onclick="openImg(this.src)"><p>Basic Commode 3</p><p class="price">PKR 11000</p><button onclick="addToCart('Basic Commode 3',11000)">Add</button></div>
+<div class="product2"><img src="images/tc13.jfif" onclick="openImg(this.src)"><p>Basic Commode 4</p><p class="price">PKR 11500</p><button onclick="addToCart('Basic Commode 4',11500)">Add</button></div>
+<div class="product2"><img src="images/tc5.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product2"><img src="images/tc6.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product2"><img src="images/tc7.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product2"><img src="images/tc8.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product2"><img src="images/tc9.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product2"><img src="images/tc10.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product2"><img src="images/tc3.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+<div class="product2"><img src="images/tc12.jfif" onclick="openImg(this.src)"><p>Basic Commode 5</p><p class="price">PKR 12000</p><button onclick="addToCart('Basic Commode 5',12000)">Add</button></div>
+</div>
+
+
+<div class="brand-logo"><img src="images/faisal.jfif"></div>
+
+<div class="grid">
+
+<div class="product3"><img src="images/Concealed-Flush-Tank-with-Full-Frame.webp" onclick="openImg(this.src)"><p>Basic Commode 1</p><p class="price">PKR 10000</p><button onclick="addToCart('Basic Commode 1',10000)">Add</button></div>
+<div class="product3"><img src="images/Concealed-Flush-Tank-with-Half-Frame.webp" onclick="openImg(this.src)"><p>Basic Commode 2</p><p class="price">PKR 10500</p><button onclick="addToCart('Basic Commode 2',10500)">Add</button></div>
+<div class="product3"><img src="images/Concealed-Flush-Tank-wo-Frame.webp" onclick="openImg(this.src)"><p>Basic Commode 3</p><p class="price">PKR 11000</p><button onclick="addToCart('Basic Commode 3',11000)">Add</button></div>
+<div class="product3"><img src="images/tank1.jfif" onclick="openImg(this.src)"><p>Basic Commode 3</p><p class="price">PKR 11000</p><button onclick="addToCart('Basic Commode 3',11000)">Add</button></div>
+<div class="product3"><img src="images/tank2.jfif" onclick="openImg(this.src)"><p>Basic Commode 3</p><p class="price">PKR 11000</p><button onclick="addToCart('Basic Commode 3',11000)">Add</button></div>
+<div class="product3"><img src="images/tank3.jfif" onclick="openImg(this.src)"><p>Basic Commode 3</p><p class="price">PKR 11000</p><button onclick="addToCart('Basic Commode 3',11000)">Add</button></div>
+<div class="product3"><img src="images/tank4.jfif" onclick="openImg(this.src)"><p>Basic Commode 3</p><p class="price">PKR 11000</p><button onclick="addToCart('Basic Commode 3',11000)">Add</button></div>
+<!-- <div class="product3"><img src="images/Flush-Tank-Baffa.webp" onclick="openImg(this.src)"><p>Basic Commode 4</p><p class="price">PKR 11500</p><button onclick="addToCart('Basic Commode 4',11500)">Add</button></div> -->
+
+</div>
+
+<!-- POPUP -->
+<div id="popup" onclick="closeImg()">
+<img id="popimg">
+</div>
+
+<!-- FOOTER -->
+<footer>
+<p>📞 0333-9438636</p>
+<p>📧 muzamilbuldingmaterial@gmail.com</p>
+<p>Karachi, Pakistan</p>
+</footer>
+
+<!-- JS -->
+<script>
+function openImg(src){
+document.getElementById("popup").style.display="flex";
+document.getElementById("popimg").src=src;
+}
+function closeImg(){
+document.getElementById("popup").style.display="none";
+}
+</script>
+
+</body>
+</html>

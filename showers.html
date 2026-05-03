@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SHOWER SETS</title>
+<!-- <style src="style.css"></style> -->
+<script src="cart.js"></script>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI', sans-serif;
+}
+
+body{
+background:linear-gradient(90deg,#ffffff,#eef2f7,#ffffff);
+}
+
+/* HEADER SAME */
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 40px;
+background:linear-gradient(90deg,#ffffff,#1e3a8a,#334155);
+
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo img{height:75px;}
+
+.logo span{
+color:white;
+font-size:18px;
+}
+
+/* TITLE */
+.brand-title{
+text-align:center;
+font-size:44px;
+margin:25px 0;
+font-weight:700;
+color:#0f172a;
+}
+
+/* BRAND LOGO */
+.brand-logo{
+text-align:center;
+margin:25px 0;
+}
+
+.brand-logo img{
+height:90px;
+background:white;
+padding:8px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* GRID (FEWER ITEMS = BIG DISPLAY) */
+.grid, .grid-2{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+padding:20px 40px;
+}
+
+/* 🔥 BIG SHOWROOM CARD (IMPORTANT PART) */
+.product,
+.product,
+.product2,
+.product3{
+background:white;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+transition:0.3s;
+display:flex;
+flex-direction:column;
+}
+
+/* hover */
+.product:hover,
+.product:hover,
+.product2:hover,
+.product3:hover{
+transform:scale(1.03);
+}
+
+/* 🔥 BIG IMAGE (SHOW FULL SET CLEARLY) */
+.product img,
+.product img,
+.product2 img,
+.product3 img{
+width:100%;
+height:320px;          /* BIG DISPLAY */
+object-fit:contain;    /* SHOW FULL SET */
+background:#f8fafc;
+padding:15px;
+}
+
+/* TEXT */
+.product p,
+.product p,
+.product2 p,
+.product3 p{
+font-size:16px;
+font-weight:600;
+margin:8px;
+text-align:center;
+color:#111;
+}
+
+/* PRICE */
+.price{
+color:#e11d48;
+font-size:16px;
+font-weight:bold;
+text-align:center;
+}
+
+/* BUTTON */
+.product button,
+.product button,
+.product2 button,
+.product3 button{
+margin-top:auto;
+background:linear-gradient(45deg,#0ea5e9,#1e3a8a);
+color:white;
+border:none;
+padding:12px;
+width:100%;
+font-size:15px;
+cursor:pointer;
+font-weight:600;
+}
+
+.product button:hover,
+.product button:hover,
+.product2 button:hover,
+.product3 button:hover{
+background:linear-gradient(45deg,#0284c7,#1e40af);
+}
+
+/* POPUP */
+#popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.92);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+#popup img{
+max-width:95%;
+max-height:95%;
+border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+<header class="header">
+<div class="logo" onclick="location.href='index.html'">
+<img src="images/logo.png">
+<span>Muzamil Building Materials</span>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="sanitary.html">Back</a>
+<a href="cart.html">Cart 🛒</a>
+</nav>
+</header>
+
+
+<h2 class="brand-title">Premium Brands SHOWER SET</h2>
+
+<!-- ===== BRAND 1 ===== -->
+<div class="brand-logo"><img src="images/aquab.jfif"></div>
+<div class="grid">
+
+<div class="product"><img src="images/as2.jfif" onclick="openImg(this.src)"><button onclick="addToCart('Aqua Shower1,65000')">Add</button></div>
+<div class="product"><img src="images/as3.jfif" onclick="openImg(this.src)"><button onclick="addToCart('Aqua Shower1,65000')">Add</button></div>
+<div class="product"><img src="images/as4.jfif" onclick="openImg(this.src)"><button onclick="addToCart('Aqua Shower1,80000')">Add</button></div>
+<div class="product"><img src="images/as5.jfif" onclick="openImg(this.src)"><button onclick="addToCart('Aqua Shower1,80000')">Add</button></div>
+<div class="product"><img src="images/as6.jfif" onclick="openImg(this.src)"><button onclick="addToCart('Aqua Shower1,80000')">Add</button></div>
+<div class="product"><img src="images/as9" onclick="openImg(this.src)"><p>Wall Mounted Shower Set - Grey</p><p class="price">6400</p><button onclick="addToCart('Wall Mounted Shower Set - Grey',6400)">Add</button></div>
+<div class="product"><img src="images/as7.jfif" onclick="openImg(this.src)"><p>Mixer 7</p><p class="price">6200</p><button onclick="addToCart('Mixer 7',6200)">Add</button></div>
+<div class="product"><img src="images/as8.jfif" onclick="openImg(this.src)"><p>Mixer 8</p><p class="price">6400</p><button onclick="addToCart('Mixer 8',6400)">Add</button></div>
+</div>
+
+<!-- ===== BRAND 2 ===== -->
+<div class="brand-logo"><img src="images/faisal.jfif"></div>
+<div class="grid-2">
+
+<div class="product"><img src="images/fcom1.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/fcom2.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/fcom3.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/fcom4.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/fcom5.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/fcom6.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/fcom7.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/fcom8.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/fcom9.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/fcom10.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/fcom11.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+
+</div>
+<div class="brand-logo"><img src="images/cono.jfif"></div>
+<div class="grid-2">
+
+<div class="product"><img src="images/cono1.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/cono2.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/cono3.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/cono4.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/cono5.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/cono6.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/cono7.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/cono8.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/cono9.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/cono10.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/cono11.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+<div class="product"><img src="images/cono12.jfif" onclick="openImg(this.src)"><p>Mixer</p><button>Add</button></div>
+
+</div>
+
+
+
+<!-- POPUP -->
+<div id="popup" onclick="closeImg()">
+<img id="popimg">
+</div>
+
+<script>
+function openImg(src){
+document.getElementById("popup").style.display="flex";
+document.getElementById("popimg").src=src;
+}
+function closeImg(){
+document.getElementById("popup").style.display="none";
+}
+</script>
+
+</body>
+</html>
